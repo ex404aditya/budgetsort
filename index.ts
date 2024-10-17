@@ -1,12 +1,13 @@
-
+import app from './app'
 
 const port = process.env.PORT || 4000
 
 Bun.serve({
     port: port,
-    fetch(req) {
-        return new Response("first time from bun");
-    }
+    static: {
+        "/": new Response("sum bithc in the cosmos")
+    },
+    fetch: app.fetch
 })
 
-console.log("server running!sum bithc in the cosmos");
+console.log("server running!");
